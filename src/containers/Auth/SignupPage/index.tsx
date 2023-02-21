@@ -38,14 +38,33 @@ const SignupPage = () => {
 
   return (
     <Row className="signuppagebody">
-      <Col md={6} lg={4} className="mx-auto" style={{ height: "100vh" }}>
-        <Card style={{ marginTop: "300px", transform: "translateY(-50%)" , background:"transparent",color:"white",zIndex:"10"}}>
-          <Card.Body>
+      <Col md={6} lg={4} className="mx-auto" style={{ height: "100vh",zIndex:"10" }}>
+        <Card className='logoutcard' style={{ marginTop: "300px", transform: "translateY(-50%)",zIndex:"20",borderTop:"7px solid #9f8d37"}}>
+          <div style={{margin:"auto"}}>
+            <img className='logoimg' src='logo.png'/>
+          </div>
+          <Card.Body style={{ marginTop:"10px"}}>
             <Card.Title style={{ textAlign: "center",fontWeight: "300",marginBottom: "1.5rem",lineHeight: "1.5",fontSize: "1.75rem"}}>Sign up</Card.Title>
             
             <Form className="form" onSubmit={formik.handleSubmit}>
-              <Form.Group className="mb-2" style={{ marginBottom: "1rem", textAlign: "left" }}>
+              <Form.Group className="mb-2 logoutform">
+                <Form.Control
+                  type="text"
+                  name="name"
+                  id="name"
+                  
+                  placeholder="name"
+                  className="emailformcontrol"
+                  style={{ height: "50px",
+                    color: "black",
+                    border: "1px solid #9f8d37",
+                    background: "transparent",
+                    paddingLeft: "20px",
+                    paddingRight: "20px"}}
+                />
                 
+              </Form.Group>
+              <Form.Group className="mb-2 logoutform">
                 <Form.Control
                   type="text"
                   name="email"
@@ -53,11 +72,11 @@ const SignupPage = () => {
                   value={formik.values.email}
                   onChange={formik.handleChange}
                   placeholder="gmail"
+                  className="emailformcontrol"
                   style={{ height: "50px",
-                    color: "white",
-                    border: "1px solid transparent",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    borderRadius: "40px",
+                    color: "black",
+                    border: "1px solid #9f8d37",
+                    background: "transparent",
                     paddingLeft: "20px",
                     paddingRight: "20px"}}
                 />
@@ -73,12 +92,12 @@ const SignupPage = () => {
                   id="password"
                   value={formik.values.password}
                   onChange={formik.handleChange}
+                  className="pswformcontrol"
                   placeholder="password"
                   style={{ height: "50px",
-                    color: "white",
-                    border: "1px solid transparent",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    borderRadius: "40px",
+                    color: "black",
+                    border: "1px solid #9f8d37",
+                    background: "transparent",
                     paddingLeft: "20px",
                     paddingRight: "20px"}}
                 />
@@ -90,8 +109,8 @@ const SignupPage = () => {
                 Sign up
               </Button>
             </Form>
-            <Link to="/signin" className="d-block my-2 text-center">
-              Go to Sign in Page
+            <Link to="/signin" className="d-block my-2 text-center" style={{textDecoration:"none", color:"#934036",width:"150px",margin:"auto"}}>
+              <b>Go to Sign in Page</b>
             </Link>
           </Card.Body>
         </Card>

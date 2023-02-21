@@ -47,13 +47,18 @@ const SigninPage = () => {
 
   return (
     <Row className="signinpagebody">
-      <Col md={6} lg={4} className="mx-auto" style={{ height: "100vh" }}>
-        <Card style={{ marginTop: "300px", transform: "translateY(-50%)" , background:"transparent",color:"white",zIndex:"10"}}>
-          <Card.Body>
+      <Col md={6} lg={4} className="mx-auto" style={{ height: "100vh",zIndex:"10"}}>
+        
+        <Card className='logincard' style={{ marginTop: "300px", transform: "translateY(-50%)" ,zIndex:"20",borderTop:"7px solid #9f8d37"}}>
+          <div style={{margin:"auto"}}>
+            <img className='logoimg' src='logo.png'/>
+          </div>
+          
+          <Card.Body style={{ marginTop:"10px"}}>
             <Card.Title style={{ textAlign: "center",fontWeight: "300",marginBottom: "1.5rem",lineHeight: "1.5",fontSize: "1.75rem"}}>Have an account?</Card.Title>
             
             <Form className="form" onSubmit={formik.handleSubmit}>
-              <Form.Group className="mb-2" style={{ marginBottom: "1rem", textAlign: "left" }}>
+              <Form.Group className="mb-2 loginform">
                 
                 <Form.Control
                   type="text"
@@ -64,10 +69,9 @@ const SigninPage = () => {
                   placeholder="email"
                   className="emailformcontrol"
                   style={{ height: "50px",
-                    color: "white",
-                    border: "1px solid transparent",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    borderRadius: "40px",
+                    color: "black",
+                    border: "1px solid #9f8d37",
+                    background: "transparent",
                     paddingLeft: "20px",
                     paddingRight: "20px"}}
                 />
@@ -79,7 +83,7 @@ const SigninPage = () => {
                   : null
                 }
               </Form.Group>
-              <Form.Group className="mb-2">
+              <Form.Group className="mb-2 loginform">
                 
                 <Form.Control
                   type="password"
@@ -90,10 +94,9 @@ const SigninPage = () => {
                   className="pswformcontrol"
                   placeholder="password"
                   style={{ height: "50px",
-                    color: "white",
-                    border: "1px solid transparent",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    borderRadius: "40px",
+                    color: "black",
+                    border: "1px solid #9f8d37",
+                    background: "transparent",
                     paddingLeft: "20px",
                     paddingRight: "20px"}}
                 />
@@ -105,11 +108,26 @@ const SigninPage = () => {
                 Sign in
               </Button>
             </Form>
-            <Link to="/signup" className="d-block my-2 text-center">
-              Go to Sign up Page
+            
+            <Link to="/signup" className="d-block my-2 text-center" style={{textDecoration:"none", color:"#934036",width:"150px",margin:"auto"}}>
+              <b>Go to Sign up Page</b>
             </Link>
+            <div style={{position:"relative"}}>
+                <div>
+                    <Form.Group className="mb-3" controlId="formBasicCheckbox" style={{color:"grey"}}>
+                       <Form.Check type="checkbox" label="Remember me" />
+                    </Form.Group>
+                </div>
+                <div style={{ position:"absolute",right:"4px",top:"0px",color:"grey"}}>
+                    <Link to="/signup" className="  text-center" style={{textDecoration:"none", width:"150px",color:"grey"}}>
+                       Forgot password?
+                    </Link>
+                </div>
+                
+            </div>
           </Card.Body>
         </Card>
+        
       </Col>
     </Row>
   );

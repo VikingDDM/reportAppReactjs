@@ -1,22 +1,11 @@
 .signuppagebody {
-    background-image: url('../../../../public/bg.jpg'); 
+    background-image: url('../../../../public/online_tool_2@2x.jpg'); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 657px;
+
 }
 .signuppagebody::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    background: #000;
-    opacity: 0.3;
-  
-}
-.signinpagebody::after {
     position: absolute;
     top: 0 ;
     left: 0 ;
@@ -24,21 +13,39 @@
     bottom: 0 ;
     content: '';
     background: #000;
-    opacity: 0.3;
+    opacity: 0.8;
+  
 }
+.logoutcard {
+    border-radius: unset;
+}
+.logoimg {
+    width: 150px;
+    height: 70px;
+    z-index: 1000 !important;
+    margin-top: 40px;
+    }
+.logoutform {
+    margin-bottom: 1rem !important;
+    text-align: left;
+}
+
+.pswformcontrol {
+    border-radius: unset;
+}
+
 .emailformcontrol {
-    color: white !important;
+    color: #000;
+    border-radius: unset;
 }
 .submitbtn {
-    background: #fbceb5 !important;
-    border: 1px solid #fbceb5 !important;
-    color: #000 !important;
-    border-radius: 40px;
+    background: #646363 !important;
+    
+    border-radius: unset;
     box-shadow: none !important;
     font-size: 15px;
     text-transform: uppercase;
     height: 50px;
     padding-left: 1rem !important;  
     padding-right: 1rem !important;
-
 }
