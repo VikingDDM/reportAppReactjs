@@ -1,0 +1,69 @@
+import { toast } from "react-toastify";
+import { storageConst } from "helpers/const.helper";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import AsyncLocalStorage from "@createnextapp/async-local-storage";
+
+import api from "../../../services/api";
+import { AuthState, Credentials, ForgotPasswordVerify, Token } from "./types";
+
+const initialState: AuthState = {
+  user: {
+    id: 0,
+    email: "",
+  },
+  loading: false,
+};
+
+const signinWithToken = createAsyncThunk(
+  "auth/signintoken",
+  async (token: Token) => {
+    const response = await api.signinwithtoken(token);
+    toast.success(response.data.message);
+    await AsyncLocalStorage.setItem(storageConst, response.data.token);
+
+    return response.data;
+  }
+);
+
+const signin = createAsyncThunk(
+  "auth/signin",
+  async (credentials: Credentials) => {
+    const response = await api.signin(credentials);
+    toast.success(response.data.message);
+    await AsyncLocalStorage.setItem(storageConst, response.data.token);
+
+    return response.data;
+  }
+);
+
+const signupverify = createAsyncThunk(
+  "auth/signupverify",
+  async (token: Token) => {
+    const response = await api.signupverify(token);
+    await AsyncLocalStorage.setItem(storageConst, response.data.token);
+    toast.success(response.data.message);
+
+    return response.data;
+  }
+);
+
+const forgotpasswordverify = createAsyncThunk(
+  "auth/forgotpasswordverify",
+  async (tokenandnewpassword: ForgotPasswordVerify) => {
+    const response = await api.forgotpasswordverify(tokenandnewpassword);
+    await AsyncLocalStorage.setItem(storageConst, response.data.token);
+    toast.success(response.data.message);
+
+    return response.data;
+  }
+);
+
+const signout = createAsyncThunk("auth/signout", async () => {
+  const response = await api.signout();
+  await AsyncLocalStorage.removeItem(storageConst);
+  toast.success(response.data.message);
+
+  return initialState;
+});
+
+export { signinWithToken, signin, signupverify, forgotpasswordverify, signout };

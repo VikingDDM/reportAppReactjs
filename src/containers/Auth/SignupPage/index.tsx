@@ -1,5 +1,4 @@
-
-import '../style.css'
+import "../style.css";
 import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -40,23 +39,14 @@ const SignupPage = () => {
   return (
     <Row className="pagebody">
       <Col md={6} lg={4} className="mx-auto mainbody">
-        <Card className='maincard' >
-          <div className='logocontent'>
-            <img className='logoimg' src='logo.png'/>
+        <Card className="maincard">
+          <div className="logocontent">
+            <img className="logoimg" src="logo.png" />
           </div>
-          <Card.Body className='cardbody'>
-            <Card.Title className='cardtitle' >Sign up</Card.Title>
-            
+          <Card.Body className="cardbody">
+            <Card.Title className="cardtitle">Sign up</Card.Title>
+
             <Form className="form cardform" onSubmit={formik.handleSubmit}>
-              <Form.Group className="mb-2">
-                <Form.Control
-                  type="text"
-                  name="name"
-                  id="name"  
-                  placeholder="name"
-                  className="formcontrol"
-                />
-              </Form.Group>
               <Form.Group className="mb-2">
                 <Form.Control
                   type="text"
@@ -64,13 +54,14 @@ const SignupPage = () => {
                   id="email"
                   placeholder="gmail"
                   className="formcontrol"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
                 />
                 {formik.touched.email && formik.errors.email ? (
                   <div className="text-danger">{formik.errors.email}</div>
                 ) : null}
               </Form.Group>
               <Form.Group className="mb-2">
-                
                 <Form.Control
                   type="password"
                   name="password"
@@ -79,12 +70,14 @@ const SignupPage = () => {
                   onChange={formik.handleChange}
                   className="formcontrol"
                   placeholder="password"
-                  style={{ height: "50px",
+                  style={{
+                    height: "50px",
                     color: "black",
                     border: "1px solid #9f8d37",
                     background: "transparent",
                     paddingLeft: "20px",
-                    paddingRight: "20px"}}
+                    paddingRight: "20px",
+                  }}
                 />
                 {formik.touched.password && formik.errors.password ? (
                   <div className="text-danger">{formik.errors.password}</div>
