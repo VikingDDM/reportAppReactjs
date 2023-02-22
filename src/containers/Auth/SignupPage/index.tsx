@@ -6,20 +6,26 @@ import { Row, Col, Card, Form, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { emailReg, errorMsg, passwordReg } from "helpers/const.helper";
 import { toast } from "react-toastify";
-import { signup } from "hooks/auth";
+// import { signup } from "hooks/auth";
+import { signup } from "store/modules/auth";
+import { useAppDispatch } from "store/hooks";
 
 const validationSchema = yup.object({
+  name: yup.string().required(),
   email: yup.string().required(),
   password: yup.string().required(),
 });
 
 const initialValues = {
+  name: "",
   email: "",
   password: "",
 };
 
 const SignupPage = () => {
   const history = useHistory();
+
+  const dispatch = useAppDispatch();
 
   const formik = useFormik({
     initialValues,
@@ -29,9 +35,10 @@ const SignupPage = () => {
         ? toast.error(errorMsg.mail)
         : !passwordReg.test(values.password)
         ? toast.error(errorMsg.password)
-        : signup(values).then(() => {
-            history.push("/signup/changeemail", { data: values.email });
-          });
+        : dispatch(signup(values))
+        // signup(values).then(() => {
+        //     history.push("/signup/changeemail", { data: values.email });
+        //   });
       actions.resetForm({ values: initialValues });
     },
   });
@@ -47,6 +54,20 @@ const SignupPage = () => {
             <Card.Title className="cardtitle">Sign up</Card.Title>
 
             <Form className="form cardform" onSubmit={formik.handleSubmit}>
+              <Form.Group className="mb-2">
+                <Form.Control
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="name"
+                  className="formcontrol"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                />
+                {formik.touched.name && formik.errors.name ? (
+                  <div className="text-danger">{formik.errors.name}</div>
+                ) : null}
+              </Form.Group>
               <Form.Group className="mb-2">
                 <Form.Control
                   type="text"

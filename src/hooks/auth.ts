@@ -6,10 +6,10 @@ import {
   ForgotPassword,
 } from "store/modules/auth/types";
 
-export const signup = async (credentials: Credentials) => {
-  const response = await api.signup(credentials);
-  toast.success(response.data?.message);
-};
+// export const signup = async (credentials: Credentials) => {
+//   const response = await api.signup(credentials);
+//   toast.success(response.data?.message);
+// };
 
 export const changeemail = async (emails: ChangeEmail) => {
   const response = await api.changeemail(emails);

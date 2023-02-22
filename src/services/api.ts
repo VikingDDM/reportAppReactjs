@@ -9,6 +9,7 @@ import {
   ForgotPassword,
   ChangeEmail,
   Token,
+  Signup
 } from "../store/modules/auth/types";
 import { storageConst } from "helpers/const.helper";
 
@@ -45,7 +46,7 @@ const api = {
     axiosInstance.post<AuthResult>("auth/signin", credentials),
   signinwithtoken: (token: Token) =>
     axiosInstance.post<AuthResult>("auth/signin/token", token),
-  signup: (credentials: Credentials) =>
+  signup: (credentials: Signup) =>
     axiosInstance.post<AuthResult>("auth/signup", credentials),
   signupverify: (token: Token) =>
     axiosInstance.post<AuthResult>("auth/signup/verify", token),

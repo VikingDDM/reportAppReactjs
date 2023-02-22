@@ -2,12 +2,13 @@ import "./index.css";
 import Nav from "react-bootstrap/Nav";
 import React, { useEffect } from "react";
 import { RootState } from "store/store";
+import {signinAuth} from "store/modules/auth/selectors"
 import { signout } from "store/modules/auth";
 import { Row, Col, Button } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 
 const Main = () => {
-  const user = useAppSelector((state: RootState) => state.auth.user);
+  const user = useAppSelector(signinAuth);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

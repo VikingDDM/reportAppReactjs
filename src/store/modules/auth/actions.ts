@@ -4,7 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import AsyncLocalStorage from "@createnextapp/async-local-storage";
 
 import api from "../../../services/api";
-import { AuthState, Credentials, ForgotPasswordVerify, Token } from "./types";
+import { AuthState, Credentials, ForgotPasswordVerify, Token,Signup } from "./types";
 
 const initialState: AuthState = {
   user: {
@@ -31,6 +31,16 @@ const signin = createAsyncThunk(
     const response = await api.signin(credentials);
     toast.success(response.data.message);
     await AsyncLocalStorage.setItem(storageConst, response.data.token);
+
+    return response.data;
+  }
+);
+
+const signup = createAsyncThunk(
+  "auth/signup",
+  async (credentials: Signup) => {
+    const response = await api.signup(credentials);
+    toast.success(response.data.message);
 
     return response.data;
   }
@@ -66,4 +76,4 @@ const signout = createAsyncThunk("auth/signout", async () => {
   return initialState;
 });
 
-export { signinWithToken, signin, signupverify, forgotpasswordverify, signout };
+export { signinWithToken, signin, signupverify, forgotpasswordverify, signout, signup };

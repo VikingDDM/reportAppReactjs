@@ -7,6 +7,7 @@ import {
   signupverify,
   forgotpasswordverify,
   signout,
+  signup,
 } from "./actions";
 
 const initialState: AuthState = {
@@ -66,10 +67,21 @@ export const authSlice = createSlice({
       })
       .addCase(forgotpasswordverify.rejected, (state) => {
         state.loading = false;
+      })
+      .addCase(signup.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(signup.fulfilled, (state, action) => {
+        state.loading = false;
+        // const { user } = action.payload;
+        // state.user = user;
+      })
+      .addCase(signup.rejected, (state) => {
+        state.loading = false;
       });
   },
 });
 
-export { signinWithToken, signin, signupverify, forgotpasswordverify, signout };
+export { signinWithToken, signin, signupverify, forgotpasswordverify, signout, signup };
 
 export default authSlice.reducer;
