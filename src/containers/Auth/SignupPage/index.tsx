@@ -1,4 +1,5 @@
 import './index.css'
+import '../style.css'
 import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";

@@ -42,17 +42,18 @@ const Main = () => {
            
         </Col>
       </Row>
-      <Row className='content'>
-        <div>
+      <Row>
+        <div className='content'>
             <Nav defaultActiveKey="/home" className="flex-column navcontent">
               <Nav.Link className='navitem' href="/home"><i className="bi bi-file-text"></i> Daily report</Nav.Link>
               <Nav.Link className='navitem' eventKey="link-1"> Freelancer management</Nav.Link>
               <Nav.Link className='navitem' eventKey="link-2"> Pay amount</Nav.Link>
             </Nav>
+            <div>
+               dfsfsdf
+            </div>
         </div>
-        <div>
-          dfsfsdf
-        </div>
+        
       </Row>
       <Row className='footer'>
         dsfdsfds

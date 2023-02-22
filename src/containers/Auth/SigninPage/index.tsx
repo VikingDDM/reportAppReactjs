@@ -1,4 +1,4 @@
-import './index.css'
+import '../style.css'
 import React from "react";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
