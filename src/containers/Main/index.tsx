@@ -1,8 +1,11 @@
+import './index.css'
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
+import Nav from 'react-bootstrap/Nav';
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { signout } from "store/modules/auth";
 import { RootState } from "store/store";
+
 
 const Main = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
@@ -15,18 +18,45 @@ const Main = () => {
 
   return (
     <Row>
-      <Col md={6} lg={6} className="mx-auto mt-5">
-        <h1>Welcome here!</h1>
-        <span className="mb-3 text-muted">{user.email}</span>
-        <Button
-          type="button"
-          color="primary"
-          className="w-100 mt-5"
-          onClick={handleLoginOut}
-        >
-          Signout
-        </Button>
-      </Col>
+      <Row className="header">
+        <Col className="logocontent">
+          <div>
+              <img src="logo.png" width={100} height={45} />
+          </div>
+          <div className='logotext'>
+               <h3>Welcome to BY2!</h3>
+          </div>
+        </Col>
+        <Col className='exheader'>
+          <div className='logoutcontent'>
+              <span className="mb-3 text-muted">{user.email}</span>
+               <Button
+                 type="button"
+                 variant="outline-primary"
+                 onClick={handleLoginOut}
+                 className='logoutbtn'
+               >
+                 Signout
+               </Button>
+          </div>
+           
+        </Col>
+      </Row>
+      <Row className='content'>
+        <div>
+            <Nav defaultActiveKey="/home" className="flex-column navcontent">
+              <Nav.Link className='navitem' href="/home"><i className="bi bi-file-text"></i> Daily report</Nav.Link>
+              <Nav.Link className='navitem' eventKey="link-1"> Freelancer management</Nav.Link>
+              <Nav.Link className='navitem' eventKey="link-2"> Pay amount</Nav.Link>
+            </Nav>
+        </div>
+        <div>
+          dfsfsdf
+        </div>
+      </Row>
+      <Row className='footer'>
+        dsfdsfds
+      </Row>
     </Row>
   );
 };
