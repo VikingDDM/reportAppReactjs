@@ -1,7 +1,7 @@
 import "./index.css";
 import Nav from "react-bootstrap/Nav";
-import React, { useEffect } from "react";
-import { RootState } from "store/store";
+// import React, { useEffect } from "react";
+// import { RootState } from "store/store";
 import {signinAuth} from "store/modules/auth/selectors"
 import { signout } from "store/modules/auth";
 import { Row, Col, Button } from "react-bootstrap";
@@ -23,7 +23,7 @@ const Main = () => {
       <Row className="header">
         <Col className="logocontent">
           <div>
-            <img src="logo.png" width={100} height={45} />
+            <img src="logo.png" width={100} height={45} alt="It's logos"/>
           </div>
           <div className="logotext">
             <h3>Welcome to BY2!</h3>
