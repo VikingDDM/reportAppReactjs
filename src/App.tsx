@@ -14,7 +14,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import Loader from "components/Loader";
 import { signinWithToken } from "store/modules/auth";
-import { storageConst } from "helpers/const.helper";
+
 
 const Main = React.lazy(() => import("containers/Main"));
 const SigninPage = React.lazy(() => import("containers/Auth/SigninPage"));
@@ -30,7 +30,7 @@ const App = () => {
   const dispatch = useAppDispatch();
 
   const init = async () => {
-    const token = await AsyncLocalStorage.getItem(storageConst);
+    const token = await AsyncLocalStorage.getItem("token");
     token !== null && dispatch(signinWithToken({ token: token }));
   };
 

@@ -31,7 +31,8 @@ const signin = createAsyncThunk(
   async (credentials: Credentials) => {
     const response = await api.signin(credentials);
     toast.success(response.data.message);
-    await AsyncLocalStorage.setItem(storageConst, response.data.token);
+    await AsyncLocalStorage.setItem("token", response.data.token);
+    await AsyncLocalStorage.setItem("username", response.data.user.name);
 
     return response.data;
   }
