@@ -10,6 +10,7 @@ const initialState: AuthState = {
   user: {
     id: 0,
     email: "",
+    name:"",
   },
   loading: false,
 };
@@ -38,8 +39,8 @@ const signin = createAsyncThunk(
 
 const signup = createAsyncThunk(
   "auth/signup",
-  async (credentials: Signup) => {
-    const response = await api.signup(credentials);
+  async (signup: Signup) => {
+    const response = await api.signup(signup);
     toast.success(response.data.message);
 
     return response.data;
@@ -70,6 +71,7 @@ const forgotpasswordverify = createAsyncThunk(
 
 const signout = createAsyncThunk("auth/signout", async () => {
   const response = await api.signout();
+  
   await AsyncLocalStorage.removeItem(storageConst);
   toast.success(response.data.message);
 

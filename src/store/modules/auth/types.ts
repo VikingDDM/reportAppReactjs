@@ -12,6 +12,7 @@ export interface Signup {
 export interface User {
   id: number;
   email: string;
+  name: string;
 }
 
 export interface Token {

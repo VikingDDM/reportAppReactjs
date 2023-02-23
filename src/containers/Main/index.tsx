@@ -11,13 +11,11 @@ const Main = () => {
   const user = useAppSelector(signinAuth);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    console.log(user);
-  }, []);
 
   const handleLoginOut = () => {
-    dispatch(signout());
-    window.location.reload();
+    dispatch(signout()).then(() => 
+      window.location.reload()
+    );
   };
 
   return (
@@ -33,7 +31,7 @@ const Main = () => {
         </Col>
         <Col className="exheader">
           <div className="logoutcontent">
-            <span className="mb-3 text-muted">{user.email}</span>
+            <span className="mb-3 text-muted">{user.name}</span>
             <Button
               type="button"
               variant="outline-primary"

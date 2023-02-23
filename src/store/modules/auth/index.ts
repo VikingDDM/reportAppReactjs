@@ -14,6 +14,7 @@ const initialState: AuthState = {
   user: {
     id: 0,
     email: "",
+    name:"",
   },
   loading: false,
 };
@@ -73,8 +74,8 @@ export const authSlice = createSlice({
       })
       .addCase(signup.fulfilled, (state, action) => {
         state.loading = false;
-        // const { user } = action.payload;
-        // state.user = user;
+        const { user } = action.payload;
+        state.user = user;
       })
       .addCase(signup.rejected, (state) => {
         state.loading = false;
