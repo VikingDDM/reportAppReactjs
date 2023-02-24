@@ -17,8 +17,9 @@ const initialState: AuthState = {
 
 const signinWithToken = createAsyncThunk(
   "auth/signintoken",
-  async (token: Token) => {
-    const response = await api.signinwithtoken(token);
+  async (data: Token) => {
+    const response = await api.signinwithtoken(data);
+    
     toast.success(response.data.message);
     await AsyncLocalStorage.setItem(storageConst, response.data.token);
 

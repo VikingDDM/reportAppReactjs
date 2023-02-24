@@ -3,6 +3,7 @@
 .mainbody {
     background-color:#646363;
     overflow: auto;
+    
 }
 .header {
     margin-left: unset;
@@ -36,6 +37,8 @@
     border:1px solid #ab9c5b;
     color: #ab9c5b;
     font-size: 13px;
+    height: 40px;
+    width: 80px;
 }
 .logoutbtn:hover {
     border:2px solid #ab9c5b !important;
@@ -48,25 +51,27 @@
 .maincontent {
     padding: unset;
     margin: unset;
-    height: 100vh;
+    min-height: calc(100vh - 280px);
     background-color:#646363;
 }
 .content {
     display: flex;
-    
+    padding: unset;
 }
 .navcontent {
     padding-top: 20px;
     margin-top: 10px;
     min-height: fit-content;
     border:1px solid #ab9c5b;
-    width:150px !important;
+    width:180px !important;
     background-color: white !important;
 }
 .navitem {
     color: #646363 !important;
-    font-size: 13px;
+    font-size: 16px;
     padding-left: 20px;
+    border: none;
+    background: transparent;
 }
 .navitem:hover {
     color: #ab9c5b !important;
@@ -77,17 +82,22 @@
     padding-top: 20px;
     background-color: white !important;
     margin-top: 10px;
-
 }
 .contecttitle {
     color: #646363 !important;
 }
+.reportbtncontent {
+    display: flex;
+    justify-content: end;
+}
 .reportbtn {
-    width: 30%;
+    width: 80px;
     background-color: transparent;
     border-radius: unset;
     border:1px solid #ab9c5b;
     color: #ab9c5b;
+    height: 40px;
+    margin-bottom: 10px;
 }
 
 .reportbtn:hover {
@@ -101,8 +111,11 @@
 }
 
 .footer {
-    height: 80px;
+    height: 200px;
     background-color: white !important;
     border-top: 1px solid #ab9c5b;
     margin-top: 10px;
+    width: 100%;
+    margin-left: unset;
+    text-align: center;
 }

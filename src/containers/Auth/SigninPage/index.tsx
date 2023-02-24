@@ -47,7 +47,7 @@ const SigninPage = () => {
 
   return (
     <Row className="pagebody">
-      <Col md={6} lg={4} className="mx-auto mainbody">
+      <Col md={6} lg={4} className="mx-auto mainbody2">
         <Card className="maincard">
           <div className="logocontent">
             <img className="logoimg" src="logo.png" />
