@@ -9,8 +9,9 @@ import {
   ForgotPassword,
   ChangeEmail,
   Token,
-  Signup
+  Signup,
 } from "../store/modules/auth/types";
+import { Report, ReportResult } from "../store/modules/report/types"
 import { storageConst } from "helpers/const.helper";
 
 const axiosInstance: AxiosInstance = axios.create({
@@ -57,6 +58,10 @@ const api = {
   changeemail: (emails: ChangeEmail) =>
     axiosInstance.post<AuthResult>("auth/changeemail", emails),
   signout: () => axiosInstance.post<AuthResult>("auth/signout"),
+  createreporting: (report: Report) =>
+    axiosInstance.post<ReportResult>("report/createreporting", report),
+  getreporting: (username: string) => 
+    axiosInstance.get<ReportResult>(`report/getreporting/${username}`)
 };
 
 export default api;

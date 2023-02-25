@@ -29,7 +29,7 @@ function Header() {
         <Row className="header">
             <Col className="logocontent">
             <div>
-                <img className="logoiimg" src="logo.png" width={80} height={38} alt="It's logos"/>
+                <img className="logoiimg" src="logo.png" width={90} height={42} alt="It's logos"/>
             </div>
             <div className="logotext">
                 <h3>{userName}, Welcome to BY2!</h3>

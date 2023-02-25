@@ -79,7 +79,7 @@ export const authSlice = createSlice({
       })
       .addCase(signup.rejected, (state) => {
         state.loading = false;
-      });
+      })
   },
 });
 

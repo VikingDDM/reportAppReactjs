@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from "react"; 
-import { BrowserRouter, Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter,  Route, Switch, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 // import { Container } from "react-bootstrap";
 
@@ -25,7 +25,7 @@ const SignupPage = React.lazy(() => import("containers/Auth/SignupPage"));
 const SignupPageVerify = React.lazy(
   () => import("containers/Auth/SignupPageVerify")
 );
-const ErrorBoundary = React.lazy(() => import("components/ErrorBoundary"));
+// const ErrorBoundary = React.lazy(() => import("components/ErrorBoundary"));
 
 function Layouts() {
   const user = useAppSelector((state: RootState) => state.auth.user);
