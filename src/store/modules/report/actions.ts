@@ -27,8 +27,14 @@ const getreporting = createAsyncThunk(
   async (username: string) => {
     const response = await api.getreporting(username);
     return response.data;
-});
+}); 
 
+const getallreporting = createAsyncThunk(
+  "report/getallreporting",
+  async () => {
+    const response = await api.getallreporting();
+    console.log(response)
+    return response.data;
+}); 
 
-
-export { createreporting, getreporting };
+export { createreporting, getreporting, getallreporting };

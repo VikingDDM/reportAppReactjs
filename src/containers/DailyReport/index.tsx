@@ -1,13 +1,11 @@
 import "./main.css";
 import { Modal, Form, Container, Button}  from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
-import BootstrapTable from "react-bootstrap-table-next";
-import paginationFactory from "react-bootstrap-table2-paginator";
 import  {useFormik} from "formik";
 import  AsyncLocalStorage  from "@createnextapp/async-local-storage";
-import { useAppDispatch, useAppSelector } from "store/hooks";
+import { useAppDispatch } from "store/hooks";
 import { createreporting, getreporting } from "store/modules/report";
-import { createdReport } from "store/modules/report/selectors";
+import CustomPaginationActionsTable from "components/DailyReportTable";
 
 
 const initialValues = {
@@ -19,7 +17,7 @@ const initialValues = {
 
 
 const DailyReport =() => {
-  const addedReport = useAppSelector(createdReport)
+  
   const [reportName, setReportName] = useState("");
   const [show, setShow] = useState(false);
   const dispatch = useAppDispatch();
@@ -52,20 +50,6 @@ const DailyReport =() => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true); 
 
-  const columns = [
-    {
-      dataField: "name",
-      text: "Name",
-    },
-    {
-      dataField: "content",
-      text: "Content",
-    },
-    {
-      dataField: "createdAt",
-      text: "Date"
-    }
-  ];
   
   return (
     <Container className="reportcontent">
@@ -108,14 +92,9 @@ const DailyReport =() => {
                 </Modal.Footer>
               </Form>
           </Modal>
-          <div>
-            <BootstrapTable
-              bootstrap4
-              keyField="_id"
-              data={addedReport}
-              columns={columns}
-              pagination={paginationFactory({ sizePerPage: 5 })}
-            />
+          
+          <div className="reportTableContent">
+            <CustomPaginationActionsTable />
           </div>
         </div>  
     </Container>

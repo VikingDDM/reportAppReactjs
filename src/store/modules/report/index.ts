@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ReportState } from "./types";
 
 import {
-    createreporting, getreporting
+    createreporting, getreporting, getallreporting
   } from "./actions";
 
 const initialState: ReportState = {
@@ -36,7 +36,17 @@ export const reportSlice = createSlice({
           })
           .addCase(getreporting.rejected, (state) => {
             state.loading = false;
+          }) 
+          .addCase(getallreporting.pending, (state) => {
+            state.loading = true;
           })
+          .addCase(getallreporting.fulfilled, (state, action) => {
+            state.loading = false;
+            state.report = action.payload; 
+          })
+          .addCase(getallreporting.rejected, (state) => {
+            state.loading = false;
+          }) 
     },
   });
 

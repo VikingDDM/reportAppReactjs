@@ -4,9 +4,11 @@ export interface Report {
     createdAt: string;
     updatedAt: string;
 }
-
-
-
+export interface UpdatedReport {
+    _id: string
+    content: string;
+    updatedAt: string;
+}
 export interface ReportState {
   report: any;
   loading: boolean;
@@ -14,4 +16,5 @@ export interface ReportState {
 
 export interface ReportResult {
     report: Report;
+    _id: string;
 }

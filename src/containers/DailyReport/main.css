@@ -38,7 +38,7 @@
     color: #ab9c5b;
     font-size: 13px;
     height: 40px;
-    width: 80px;
+    width: 85px;
 }
 .logoutbtn:hover {
     border:2px solid #ab9c5b !important;
@@ -51,7 +51,7 @@
 .maincontent {
     padding: unset;
     margin: unset;
-    min-height: calc(100vh - 280px);
+    min-height: calc(100vh - 180px);
     background-color:#646363;
 }
 .content {
@@ -70,6 +70,7 @@
     color: #646363 !important;
     font-size: 16px;
     padding-left: 20px;
+    margin-bottom: 10px;
     border: none;
     background: transparent;
 }
@@ -98,6 +99,7 @@
     color: #ab9c5b;
     height: 40px;
     margin-bottom: 10px;
+    font-size: 13px;
 }
 
 .reportbtn:hover {
@@ -111,11 +113,25 @@
 }
 
 .footer {
-    height: 200px;
+    height: 80px;
     background-color: white !important;
     border-top: 1px solid #ab9c5b;
     margin-top: 10px;
     width: 100%;
     margin-left: unset;
-    text-align: center;
+}
+.reportTableContent div {
+    border-radius: 0% !important;
+    
+    box-shadow: none !important;
+}
+.reportTableContent p {
+    margin-top: unset;
+    margin-bottom: unset;
+    color: rgba(0, 0, 0, 0.6) !important;
+    
+}
+
+.borderTable {
+    border: 1px solid #ab9c5b !important;
 }

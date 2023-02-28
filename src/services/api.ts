@@ -11,7 +11,7 @@ import {
   Token,
   Signup,
 } from "../store/modules/auth/types";
-import { Report, ReportResult } from "../store/modules/report/types"
+import { Report, ReportResult, UpdatedReport } from "../store/modules/report/types"
 import { storageConst } from "helpers/const.helper";
 
 const axiosInstance: AxiosInstance = axios.create({
@@ -61,7 +61,13 @@ const api = {
   createreporting: (report: Report) =>
     axiosInstance.post<ReportResult>("report/createreporting", report),
   getreporting: (username: string) => 
-    axiosInstance.get<ReportResult>(`report/getreporting/${username}`)
+    axiosInstance.get<ReportResult>(`report/getreporting/${username}`),
+  deletereporting: (_id: string) => 
+    axiosInstance.delete(`report/deletereporting/${_id}`),
+  updatereporting: (updatedReport: UpdatedReport) =>
+    axiosInstance.post('report/updatereporting', updatedReport),
+  getallreporting: () =>
+    axiosInstance.get<ReportResult>('report/getallreporting'),
 };
 
 export default api;

@@ -3,7 +3,7 @@ import { Row } from "react-bootstrap";
 
 function Footer() {
     return (
-        <Row className="footer">dsfdsfds</Row>
+        <Row className="footer"></Row>
     )
 }
 
