@@ -23,6 +23,11 @@
 .logotext {
     margin-top: 5px;
     color: #ab9c5b;
+    
+}
+.logotext h3 {
+    font-weight: 300 !important;
+    margin-top: 8px;
 }
 .exheader {
     padding: 12px 20px 10px;
@@ -54,6 +59,7 @@
     min-height: calc(100vh - 180px);
     background-color:#646363;
 }
+
 .content {
     display: flex;
     padding: unset;
@@ -83,6 +89,9 @@
     padding-top: 20px;
     background-color: white !important;
     margin-top: 10px;
+}
+.reportcontent h4 {
+    font-weight: 300 !important;
 }
 .contecttitle {
     color: #646363 !important;

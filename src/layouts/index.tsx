@@ -73,6 +73,8 @@ function Layouts() {
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
+        {
+              user?.id ? 
           <div
             style={{
               minHeight: "100vh", 
@@ -82,8 +84,7 @@ function Layouts() {
               background: "#646363", 
             }}
           >
-            {
-              user?.id ? 
+            
                 <div> 
                   <Header /> 
                   <div className="maincontent" style={{ display: 'flex' }}>
@@ -92,9 +93,10 @@ function Layouts() {
                   </div>
                   <Footer />
                 </div>
-              : renderAuth()
-            }
+              
           </div> 
+          : renderAuth()
+          }
         </Suspense>
       </BrowserRouter>
       <ToastContainer />
