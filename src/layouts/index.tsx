@@ -84,7 +84,6 @@ function Layouts() {
               background: "#646363", 
             }}
           >
-            
                 <div> 
                   <Header /> 
                   <div className="maincontent" style={{ display: 'flex' }}>
@@ -93,7 +92,6 @@ function Layouts() {
                   </div>
                   <Footer />
                 </div>
-              
           </div> 
           : renderAuth()
           }
