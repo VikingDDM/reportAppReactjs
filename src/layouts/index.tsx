@@ -62,8 +62,8 @@ function Layouts() {
   const renderMain = () => {
     return (
       <Switch>
-        <Route exact path="/" component={DailyReport}></Route>
-        <Route exact path="/all" component={AllReport}></Route>
+        <Route exact path="/" component={AllReport}></Route>
+        <Route exact path="/daily" component={DailyReport}></Route>
         <Redirect to="/" />
       </Switch>
     );
@@ -88,9 +88,12 @@ function Layouts() {
                   <Header /> 
                   <div className="maincontent" style={{ display: 'flex' }}>
                     <Sidebar />
-                    {renderMain()}
+                    <div style={{ width: '100%'}}>
+                      {renderMain()}
+                      <Footer />
+                    </div>
                   </div>
-                  <Footer />
+                 
                 </div>
           </div> 
           : renderAuth()

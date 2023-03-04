@@ -8,8 +8,10 @@
 .header {
     margin-left: unset;
     margin-right: unset;
-    border-bottom: 2px solid #ab9c5b;
+    border-bottom: 14px solid #646363;
     background-color: white !important;
+    position: fixed;
+    width: 100%;
 }
 
 .logocontent {
@@ -23,7 +25,6 @@
 .logotext {
     margin-top: 5px;
     color: #ab9c5b;
-    
 }
 .logotext h3 {
     font-weight: 300 !important;
@@ -54,9 +55,8 @@
     background-color: #ab9c5b !important;
 }
 .maincontent {
-    padding: unset;
-    margin: unset;
-    min-height: calc(100vh - 180px);
+    
+    min-height: 100vh;
     background-color:#646363;
 }
 
@@ -65,11 +65,9 @@
     padding: unset;
 }
 .navcontent {
-    padding-top: 20px;
-    margin-top: 10px;
+    
     min-height: fit-content;
     border:1px solid #ab9c5b;
-    width:180px !important;
     background-color: white !important;
 }
 .navitem {
@@ -83,12 +81,15 @@
 .navitem:hover {
     color: #ab9c5b !important;
 }
+
 .reportcontent {
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 20px;
+    padding-top: 42px;
+    
     background-color: white !important;
-    margin-top: 10px;
+    margin-top: 88px;
+    min-height: calc(100vh - 178px);
 }
 .reportcontent h4 {
     font-weight: 300 !important;

@@ -20,6 +20,7 @@ const initialValues = {
   name: "",
   email: "",
   password: "",
+  roll:""
 };
 
 const SignupPage = () => {
@@ -31,11 +32,14 @@ const SignupPage = () => {
     initialValues,
     validationSchema,
     onSubmit: (values, actions) => {
+      values.roll = "Visitor"
       !emailReg.test(values.email)
         ? toast.error(errorMsg.mail)
         : !passwordReg.test(values.password)
         ? toast.error(errorMsg.password)
-        : dispatch(signup(values))
+        : dispatch(signup(values)).then(() => {
+          history.push("/signin");
+        });
         // signup(values).then(() => {
         //     history.push("/signup/changeemail", { data: values.email });
         //   });

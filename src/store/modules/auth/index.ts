@@ -15,6 +15,7 @@ const initialState: AuthState = {
     id: 0,
     email: "",
     name:"",
+    roll:"",
   },
   loading: false,
 };

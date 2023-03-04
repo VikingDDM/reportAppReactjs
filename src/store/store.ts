@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import authReducer from "./modules/auth";
 import reportReducer from "./modules/report";
+import sidebarReducer from "./modules/sidebar";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     report: reportReducer,
+    sidebar: sidebarReducer,
   },
 });
 

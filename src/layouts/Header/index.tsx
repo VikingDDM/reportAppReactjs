@@ -3,6 +3,9 @@ import { Row, Col, Button } from "react-bootstrap";
 import AsyncLocalStorage from "@createnextapp/async-local-storage";
 import { useAppDispatch } from "store/hooks";
 import { signout } from "store/modules/auth";
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import { sidebaropening } from 'store/modules/sidebar';
 
 function Header() {
     const dispatch = useAppDispatch(); 
@@ -14,7 +17,9 @@ function Header() {
         setUserName(user);
     };
 
-    
+    const handleOpen = () => {
+        dispatch(sidebaropening())
+    }
     const handleLoginOut = () => {
         dispatch(signout()).then(() => 
             window.location.reload()
@@ -30,6 +35,18 @@ function Header() {
             <Col className="logocontent">
             <div>
                 <img className="logoiimg" src="logo.png" width={90} height={42} alt="It's logos"/>
+                <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={handleOpen}
+                    edge="start"
+                    sx={{
+                      marginLeft: 2,
+                      marginTop: 1.5
+                    }}
+                >
+                    <MenuIcon />
+                </IconButton>
             </div>
             <div className="logotext">
                 <h3>{userName}, Welcome to BY2!</h3>

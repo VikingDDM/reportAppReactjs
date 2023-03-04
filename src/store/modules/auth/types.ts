@@ -7,12 +7,14 @@ export interface Signup {
   name: string;
   email: string;
   password: string;
+  roll: string;
 }
 
 export interface User {
   id: number;
   email: string;
   name: string;
+  roll: string;
 }
 
 export interface Token {
