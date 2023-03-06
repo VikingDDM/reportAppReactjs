@@ -1,10 +1,9 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
-import { useAppSelector } from "store/hooks";
+import { useAppSelector, useAppDispatch } from "store/hooks";
 import { RootState } from "store/store";
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -12,6 +11,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { sidebaropen } from 'store/modules/sidebar';
 import { useState, useEffect } from 'react';
+import { sidebaropening } from 'store/modules/sidebar';
 
 const drawerWidth = 160;
 
@@ -22,7 +22,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   top: 87.5,
-  height: 532,
+  height: 568,
   overflowX: 'hidden',
 });
 
@@ -32,7 +32,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   top: 87.5,
-  height: 532,
+  height: 568,
   overflowX: 'hidden',
   width: `calc(${theme.spacing(5)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
@@ -161,7 +161,7 @@ const VisitorSidebar = (responsive : any) => {
 
 
 function Sidebar() {
-    
+    const dispatch = useAppDispatch();
     const user = useAppSelector((state: RootState) => state.auth.user);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [openstate,setOpenstate] = useState(true);
@@ -175,18 +175,23 @@ function Sidebar() {
       window.addEventListener('resize', handleWindowResize);
   
       
-      if(window.innerWidth>885) {
+      if(window.innerWidth > 885) {
         setOpenstate(true)
-      } else if (window.innerWidth === 885) {
-        setOpenstate(false)
-      } else {
-        setOpenstate(opningstate)
-      }
-      
+        dispatch(sidebaropening(true));
+      } else if (window.innerWidth <= 885 ) {
+        dispatch(sidebaropening(false));
+        setOpenstate(false);
+      }   
+
       return () => {
         window.removeEventListener('resize', handleWindowResize);
       };
-    }, [window.innerWidth, opningstate]);
+      
+    }, [window.innerWidth]);
+
+    useEffect(() => {
+      setOpenstate(opningstate)
+    }, [opningstate])
 
     return (
         <div className="flex-column navcontent">

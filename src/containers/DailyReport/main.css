@@ -12,12 +12,14 @@
     background-color: white !important;
     position: fixed;
     width: 100%;
+    height: 88px;
 }
 
 .logocontent {
     display: flex;
-    padding: 10px 10px 10px 45px;
+    padding: 10px 10px 10px 30px;
     justify-content: space-between;
+    margin: unset !important;
 }
 .logoiimg {
     margin-top: 5px;

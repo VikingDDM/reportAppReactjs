@@ -1,16 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import { Row, Col, Button } from "react-bootstrap";
 import AsyncLocalStorage from "@createnextapp/async-local-storage";
-import { useAppDispatch } from "store/hooks";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 import { signout } from "store/modules/auth";
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { sidebaropening } from 'store/modules/sidebar';
+import { sidebaropening, sidebaropen } from 'store/modules/sidebar';
 
 function Header() {
     const dispatch = useAppDispatch(); 
+    const opningstate = useAppSelector(sidebaropen);
 
     const [userName, setUserName] = useState('');
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [cssprop, setCssprop] = useState("block");
+    const [csspropdraw, setCsspropdraw] = useState("none");
 
     const init = async () => {
         const user = await AsyncLocalStorage.getItem("username");
@@ -18,7 +22,7 @@ function Header() {
     };
 
     const handleOpen = () => {
-        dispatch(sidebaropening())
+        dispatch(sidebaropening(!opningstate))
     }
     const handleLoginOut = () => {
         dispatch(signout()).then(() => 
@@ -28,7 +32,21 @@ function Header() {
 
     useEffect(() => {
         init();    
-    }, [])
+        const handleWindowResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleWindowResize);
+        if(window.innerWidth<=1055) {
+            setCssprop("none");
+        } else {
+          setCssprop("block");
+        }
+        if(window.innerWidth<=885) {
+            setCsspropdraw("block");
+        } else {
+            setCsspropdraw("none");
+        }
+    }, [window.innerWidth])
 
     return (
         <Row className="header">
@@ -40,15 +58,12 @@ function Header() {
                     aria-label="open drawer"
                     onClick={handleOpen}
                     edge="start"
-                    sx={{
-                      marginLeft: 2,
-                      marginTop: 1.5
-                    }}
+                    style={{marginTop:"5px", marginLeft:"7px"}}
                 >
-                    <MenuIcon />
+                    <MenuIcon style={{display:csspropdraw}}/>
                 </IconButton>
             </div>
-            <div className="logotext">
+            <div className="logotext" style={{display:cssprop}}>
                 <h3>{userName}, Welcome to BY2!</h3>
             </div>
             </Col>
