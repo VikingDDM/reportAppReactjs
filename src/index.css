@@ -23,3 +23,6 @@ iframe {
 iframe {
   display: none;
 }
+iframe {
+  display: block;
+}
