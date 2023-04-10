@@ -26,3 +26,6 @@ iframe {
 iframe {
   display: block;
 }
+iframe {
+  display: none;
+}
