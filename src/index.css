@@ -17,15 +17,4 @@ code {
 iframe {
   display: none !important;
 }
-iframe {
-  display: block;
-}
-iframe {
-  display: none;
-}
-iframe {
-  display: block;
-}
-iframe {
-  display: none;
-}
+
