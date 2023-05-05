@@ -160,7 +160,7 @@ interface TablePaginationActionsProps {
         content: "",  
         updatedAt: ""
     }
-
+    console.log("newPoint")
     const formik = useFormik({
         initialValues,
         onSubmit: (values, actions) => {
